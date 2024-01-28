@@ -1,0 +1,33 @@
+@host=http://localhost:8080/api
+
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+    "email": "john@gmail.com",
+    "password": "test@1234",
+    "name": "John",
+    "lastName":"Smilga"
+}
+
+###
+
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "john@gmail.com",
+    "password": "test@1234"
+}
+
+###
+GET {{host}}/users
+
+
+###
+GET {{host}}/jobs
+//?page=1&limit=5&sort=newest&jobType=full-time&jobStatus=pending&search=Topicware
+
+
+###
+GET {{host}}/jobs/stats
