@@ -15,6 +15,8 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 
+const PORT = process.env.PORT || 8080;
+
 const app = express();
 
 app.use(
@@ -29,8 +31,8 @@ app.use(bodyParser.json());
 
 const server = http.createServer(app);
 
-server.listen(8080, () => {
-  console.log("Server running on http://localhost:8080/");
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}/`);
 });
 
 const MONGO_URL = process.env.DATABASE_URL;
