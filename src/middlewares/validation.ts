@@ -62,6 +62,9 @@ export const validateIdParam = withValidationErrors([
     if (!job) throw new NotFoundError(`no job with id ${value}`);
 
     const currentUser = get(req, "identity") as User;
+
+    console.log(currentUser);
+
     const currentUserId = get(req, "identity._id") as mongoose.Types.ObjectId;
 
     const isAdmin = currentUser.role === "admin";

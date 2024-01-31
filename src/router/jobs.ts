@@ -14,8 +14,14 @@ export default (router: express.Router) => {
   router.get("/jobs", isAuthenticated, getAllJobs);
   router.route("/jobs/stats").get(showStats);
   router
-    .route("/:id")
-    .get(validateIdParam, getJob)
-    .patch(checkForTestUser, validateJobInput, validateIdParam, updateJob)
-    .delete(checkForTestUser, validateIdParam, deleteJob);
+    .route("/jobs/:id")
+    .get(isAuthenticated, validateIdParam, getJob)
+    .patch(
+      checkForTestUser,
+      isAuthenticated,
+      validateJobInput,
+      validateIdParam,
+      updateJob
+    )
+    .delete(checkForTestUser, isAuthenticated, validateIdParam, deleteJob);
 };

@@ -15,7 +15,7 @@ RUN npm run build
 FROM node:20-alpine AS server
 WORKDIR /app
 COPY package* ./
-RUN npm install --production
+RUN npm install --omit-dev
 COPY --from=ui ./app/dist ./public
 COPY --from=api ./app/dist ./dist
 EXPOSE 8080
