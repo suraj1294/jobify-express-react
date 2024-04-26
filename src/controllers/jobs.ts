@@ -97,9 +97,7 @@ export const showStats = async (
   req: express.Request,
   res: express.Response
 ) => {
-  let currentUserId = new mongoose.Types.ObjectId(
-    get(req, "identity._id") as string
-  );
+  let currentUserId = get(req, "identity._id") as string;
 
   const stats = await JobsModel.aggregate([
     { $match: { createdBy: currentUserId } },

@@ -1,5 +1,5 @@
 import { Form, redirect, Link, ActionFunction } from "react-router-dom";
-import Wrapper from "../assets/wrappers/dashboard-form-page";
+import Wrapper from "../assets/wrappers/register-and-login-page";
 import { FormRow, Logo, SubmitBtn } from "../components";
 import axiosInstance from "../utils/custom-fetch";
 import { toast } from "sonner";

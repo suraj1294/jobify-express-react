@@ -63,8 +63,6 @@ export const validateIdParam = withValidationErrors([
 
     const currentUser = get(req, "identity") as User;
 
-    console.log(currentUser);
-
     const currentUserId = get(req, "identity._id") as mongoose.Types.ObjectId;
 
     const isAdmin = currentUser.role === "admin";

@@ -7,12 +7,14 @@ import {
   getJob,
   showStats,
   updateJob,
+  createJob,
 } from "../controllers/jobs";
 import { validateIdParam, validateJobInput } from "../middlewares/validation";
 
 export default (router: express.Router) => {
   router.get("/jobs", isAuthenticated, getAllJobs);
-  router.route("/jobs/stats").get(showStats);
+  router.post("/jobs", isAuthenticated, validateJobInput, createJob);
+  router.route("/jobs/stats").get(isAuthenticated, showStats);
   router
     .route("/jobs/:id")
     .get(isAuthenticated, validateIdParam, getJob)
